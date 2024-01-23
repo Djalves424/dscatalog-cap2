@@ -1,13 +1,14 @@
 package com.devsuperior.dscatalog.entities;
 
 import jakarta.persistence.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
 
-import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "tb_role")
-public class Role implements Serializable {
+public class Role implements GrantedAuthority {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -32,6 +33,7 @@ public class Role implements Serializable {
         this.id = id;
     }
 
+    @Autowired
     public String getAuthority() {
         return authority;
     }
